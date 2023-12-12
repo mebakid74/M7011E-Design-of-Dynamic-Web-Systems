@@ -9,13 +9,16 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ['id', 'name', 'email', 'password']
         extra_kwargs = {
-            'password': {'write_only': True}  # Setting password as write-only field
+            # Setting password as write-only field
+            'password': {'write_only': True}
         }
 
     # Custom create method to handle object creation
     def create(self, validated_data):
-        # Extract password from validated data and remove it from the dictionary
-        password = validated_data.pop('password', None)
+        # Extract password from validated data and
+        # remove it from the dictionary
+        password = (validated_data.pop
+                    ('password', None))
 
         # Create a new instance of the User model with the provided validated data
         instance = self.Meta.model(**validated_data)

@@ -28,12 +28,12 @@ jobs:
          python -m pip install --upgrade pip
          python -m pip install flake8
 
-     # - name: Run Flake8 Linting
-     #  run: python -m flake8
+      - name: Run Flake8 Linting
+        run: python -m flake8
 
-      - name: Execute linting and test
+      - name: Run Django unit test
         env:
           DJANGO_SETTINGS_MODULE: project.settings
-        run: flake8 && python manage.py test
+        run: python manage.py test
 
 

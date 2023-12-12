@@ -4,11 +4,10 @@ from rest_framework.response import Response
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.generics import ListAPIView
 from rest_framework.exceptions import NotFound
-from django.contrib.auth.decorators import login_required
-from rest_framework.decorators import api_view
 from .serializers import UserSerializer
 from .models import User
-import jwt, datetime
+import jwt
+import datetime
 
 
 # Views for user registration, login, user listing, and logout
@@ -123,4 +122,3 @@ class LogoutView(APIView):
             'message': 'Logout Successful!'
         }
         return response
-

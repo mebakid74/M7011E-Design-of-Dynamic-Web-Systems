@@ -1,5 +1,7 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser, PermissionsMixin, BaseUserManager
+from django.contrib.auth.models import (AbstractUser,
+                                        PermissionsMixin,
+                                        BaseUserManager)
 
 
 # CustomUser model to handle user creation and superuser logic
@@ -33,7 +35,8 @@ class CustomUserManager(BaseUserManager):
         if not extra_fields['is_staff']:
             raise ValueError('Superuser must have is_staff=True.')
         if not extra_fields['is_superuser']:
-            raise ValueError('Superuser must have is_superuser=True.')
+            raise ValueError('Superuser must '
+                             'have is_superuser=True.')
 
         # Create a new superuser using the create_user method with provided email, password, and extra fields
         return self.create_user(email, password, **extra_fields)
@@ -54,8 +57,10 @@ class User(AbstractUser, PermissionsMixin):
     )
 
     username = None
-    email = models.EmailField(max_length=500, unique=True)
-    name = models.CharField(max_length=500)
+    email = (models.EmailField
+             (max_length=500, unique=True))
+    name = (models.CharField
+            (max_length=500))
 
     # Define the role field with choices for the user's role
     role = models.PositiveSmallIntegerField(choices=ROLE_CHOICES, blank=True, null=True, default=None)
