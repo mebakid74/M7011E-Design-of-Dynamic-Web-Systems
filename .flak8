@@ -1,8 +1,11 @@
 [flake8]
 exclude =
   .env,
+  .idea,
   migrations,
   __pycache__,
   manage.py,
-  settings.py
+  settings.py,
+  venv
 max-line-length = 120
+ignore = E501, E122, E231
