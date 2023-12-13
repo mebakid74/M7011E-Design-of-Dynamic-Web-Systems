@@ -71,4 +71,4 @@ class LoginViewTest(TestCase):
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED,
                          "Expected unauthorized login")
         if response.status_code == status.HTTP_401_UNAUTHORIZED:
-            print("Account logged in unsuccessfully")
+            print("Unauthorized account logged in unsuccessfully")
