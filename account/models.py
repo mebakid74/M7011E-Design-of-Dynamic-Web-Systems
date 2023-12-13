@@ -58,7 +58,7 @@ class User(AbstractUser, PermissionsMixin):
 
     username = None
     email = (models.EmailField
-             (max_length=500, unique=True))
+             (max_length=255, unique=True))
     name = (models.CharField
             (max_length=500))
 
