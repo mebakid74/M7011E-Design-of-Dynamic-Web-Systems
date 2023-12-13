@@ -9,7 +9,7 @@ from category.models import Categories
 class CourseTestCase(APITestCase):
     def setUp(self):
         self.category = Categories.objects.create(category_name='Test Category')
-        # self.user = User.objects.create_user(username='testuser', password='testpassword', role=User.ADMIN)
+
         self.admin_user = User.objects.create_user(email='admin@example.com', password='adminpass', role=User.ADMIN)
         self.student_user = User.objects.create_user(email='student@example.com', password='studentpass',
                                                      role=User.STUDENT)
@@ -21,7 +21,6 @@ class CourseTestCase(APITestCase):
             course_description='Test Description',
             course_date='2023-12-31',
             category=self.category
-            # Add other required fields here
         )
 
         self.client = APIClient()
