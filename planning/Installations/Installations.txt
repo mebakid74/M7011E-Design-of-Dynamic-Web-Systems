@@ -8,13 +8,18 @@ pip install pygments
 pip install mysqlclient
 pip install pymysql  
 
+To Make and Save Changes:
+
+python manage.py makemigrations
+python manage.py migrate
+
 
 To Start the Server:
 
 python manage.py runserver
 
 
-To Make and Save Changes:
+To run the Unit Test:
 
-python manage.py makemigrations 
-python manage.py migrate
+python manage.py test planning.Test.test_account
+python manage.py test planning.Test.test_course
